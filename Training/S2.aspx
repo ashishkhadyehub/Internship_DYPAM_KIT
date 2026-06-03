@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Name:</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="txtName"></asp:TextBox>
+                <asp:TextBox  runat="server" CssClass="form-control" ID="txtName"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Contact:</label>

@@ -13,9 +13,15 @@
              </div>
              <div class="mb-3 mt-3">
                  <label for="email">Contact:</label>
-                 <asp:TextBox TextMode="Email" runat="server" CssClass="form-control" ID="txtContact"  ></asp:TextBox>
+                 <asp:TextBox TextMode="Number" runat="server" CssClass="form-control" ID="txtContact"  ></asp:TextBox>
                  <%--<input type="text" />--%>
              </div>
+             <div class="mb-3 mt-3">
+                 <label for="email">Email:</label>
+                 <asp:TextBox TextMode="Email" runat="server" CssClass="form-control" ID="txtEmail"  ></asp:TextBox>
+                 <%--<input type="text" />--%>
+             </div>
+
              <div class="mb-3 mt-3">
                  <label for="email">Select City:</label>
                  <asp:DropDownList ID="ddlCities" CssClass="form-control" runat="server">
@@ -33,7 +39,7 @@
                  </select>--%>
                 
              </div>
-         <asp:Button runat="server" ID="btnSubmit" Text="Register" CssClass="btn btn-outline-success" />
+         <asp:Button runat="server" OnClick="btnSubmit_Click" ID="btnSubmit" Text="Register" CssClass="btn btn-outline-success" />
 
            
            
