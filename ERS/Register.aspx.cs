@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace ERS
+{
+    public partial class Register : System.Web.UI.Page
+    {
+        //        CREATE TABLE[dbo].[EmpRegister]
+        //        (
+
+        //    [Srno][int] IDENTITY(1,1) NOT NULL,
+
+        //    [Name] [nvarchar] (50) NULL,
+        //	[Contact][nvarchar] (50) NULL,
+        //	[Email][nvarchar] (50) NULL,
+        //	[Department][nvarchar] (50) NULL,
+        //	[Password][nvarchar] (50) NULL
+        //) ON[PRIMARY]
+
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["connstr"].ConnectionString);
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("insert into EmpRegister values (@name,@contact,@email,@dept,@pwd)", con);
+            cmd.Parameters.AddWithValue("@name",txtName.Text);
+            cmd.Parameters.AddWithValue("@contact", txtContact.Text);
+            cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+            cmd.Parameters.AddWithValue("@dept", ddldept.SelectedItem.Text);
+            cmd.Parameters.AddWithValue("@pwd", txtPassword.Text);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            txtContact.Text = "";
+            txtName.Text = "";
+            txtEmail.Text = "";
+            ddldept.SelectedIndex = 0;
+
+            this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Registered Successfully..!','','success');", true);
+        }
+    }
+}
