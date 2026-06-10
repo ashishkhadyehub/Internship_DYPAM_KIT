@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training", "Training\Traini
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERS", "ERS\ERS.csproj", "{B9105A7D-FBB5-447A-8499-C3DFD1F4858E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetCore_Training", "dotnetCore_Training\dotnetCore_Training.csproj", "{2AFDE6C3-D0D4-42C0-AB03-4E8E052DE941}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B9105A7D-FBB5-447A-8499-C3DFD1F4858E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9105A7D-FBB5-447A-8499-C3DFD1F4858E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9105A7D-FBB5-447A-8499-C3DFD1F4858E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AFDE6C3-D0D4-42C0-AB03-4E8E052DE941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AFDE6C3-D0D4-42C0-AB03-4E8E052DE941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AFDE6C3-D0D4-42C0-AB03-4E8E052DE941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AFDE6C3-D0D4-42C0-AB03-4E8E052DE941}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
