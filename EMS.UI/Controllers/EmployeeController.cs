@@ -37,7 +37,7 @@ namespace EMS.UI.Controllers
         [HttpPost]
         public IActionResult Register(Employee employee)
         {
-
+            employee.RegisterDate= DateTime.Now;
             _employeeRepo.RegisterEmployee(employee);
             TempData["Message"] = "You can login now";
             return RedirectToAction("Login");

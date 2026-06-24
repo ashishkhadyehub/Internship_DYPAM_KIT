@@ -8,16 +8,62 @@ namespace EMS.UI.Controllers
     {
         private readonly IBranchRepo _branchRepo;
         private readonly IDeptRepo _deptRepo;
-
-        public AdminController(IBranchRepo branchRepo, IDeptRepo deptRepo)
+        private readonly IAdminRepo _adminRepo;
+        public AdminController(IBranchRepo branchRepo, IDeptRepo deptRepo, IAdminRepo adminRepo)
         {
             _branchRepo = branchRepo;
             _deptRepo = deptRepo;
+            _adminRepo = adminRepo;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var employees = _adminRepo.GetAll();
+            return View(employees);
+        }
+
+        public IActionResult ApplicationList()
+        {
+
+            var applications = _adminRepo.GetAllApplications();
+
+            return View(applications);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var app = _adminRepo.GetById(id);
+
+
+            return View(app);
+        }
+
+        [HttpPost]
+        public IActionResult ApproveApp(LeaveApplication application)
+        {
+            var app = new LeaveApplication
+            {
+                Id = application.Id,
+
+
+            };
+            _adminRepo.UpdateApplication(app.Id, "Approved");
+            return RedirectToAction("ApplicationList");
+
+        }
+
+        [HttpPost]
+        public IActionResult RejectApp(LeaveApplication application)
+        {
+            var app = new LeaveApplication
+            {
+                Id = application.Id,
+
+
+            };
+            _adminRepo.UpdateApplication(app.Id, "Rajected");
+            return RedirectToAction("ApplicationList");
         }
 
         public IActionResult BranchList()
